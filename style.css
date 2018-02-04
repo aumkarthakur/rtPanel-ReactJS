@@ -1,0 +1,694 @@
+/*!
+Theme Name: rtPanel React JS
+Theme URI: http://howlthemes.com/
+Author: Aumkar Thakur
+Description: ReactJS based WordPress theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: rtpanel-react-js
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+rtPanel React JS is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Poppins' !important;
+	font-style: normal;
+	font-weight: 400;
+	background: #efefef;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+a {
+	background-color: transparent;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 40px;
+}
+
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+}
+
+optgroup {
+	font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+::selection {
+    color: #fff; 
+    background: #333;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+.navbar.navbar-expand-lg.navbar-dark.bg-light {
+    background: transparent !important;
+    padding-top: 10px;
+}
+.bgtaker{
+    background: url('./images/bg1.png');
+    background-size: cover;
+}
+.jumbotron {
+	background:transparent;
+    margin-bottom: 0px;
+}
+.jumbotron h1 {
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+.navbar-brand {
+    font-weight: 700;
+    padding-right: 20px;
+}
+.srchbox{
+    background: #046bec;
+    border-color: #92c2ff;
+    color: #fff;
+    padding-left: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    margin-left: 10px;
+    border-radius: 100px;
+    transition: all 0.5s cubic-bezier(0.93, -0.14, 0.02, 1.38);
+}
+.srchbox::placeholder {
+    color: #fff;
+    opacity: 1;
+}
+.srchbox:focus::placeholder {
+    color: #333;
+    opacity: 1;
+}
+.maincontent {
+    background: #efefef;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.maincontent .card {
+    margin-bottom: 40px;
+    box-shadow: 0 6px 29px hsla(31,13%,68%,.35);
+    transition: all 0.5s cubic-bezier(0.07, 0.28, 0.75, 1.09);
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+.maincontent .card:hover {
+    box-shadow: 0 6px 29px hsla(0, 0%, 23%, 0.35);
+}
+.card-block {
+    padding: 40px 20px;
+}
+.maincontent .card h2 {
+    font-weight: 500;
+    font-size: 26px;
+    height: 62px;
+    overflow:hidden;
+}
+.maincontent .card p {
+    color: #333;
+    font-weight: 300;
+}
+.nav .nav-item {
+    margin: 0px 10px;
+}
+.card .content {
+    height: 96px;
+}
+.maincontent .card-img-top {
+    height: 230px;
+    object-fit: cover;
+}
+.jumbotron h1 span {
+    font-weight: 300;
+}
+.spinner {
+    margin: 100px auto;
+    width: 100px;
+    height: 114px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.spinner>div {
+    background-color: #0465ea;
+    height: 100%;
+    width: 12px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+.post-inner {
+    background: #fff;
+}
+.post-inner, .title-holder, .overlay-rt{
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.title-holder {
+    padding: 70px 50px;
+    background-size: cover!important;
+    position: relative;
+}
+.overlay-rt {
+    background: #0000008c;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.title-holder h2 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+}
+.makeitrelative{
+	position:relative;
+}
+.title-holder span {
+    color: #efefef;
+    font-size: 20px;
+    margin-top: 21px;
+    display: inline-block;
+    border-bottom: 1px solid #fff;
+}
+.post-content {
+    padding: 40px;
+    font-size: 18px;
+    color: #333;
+    line-height: 30px;
+}
+.page-inner .title-holder {
+    padding: 2px 40px;
+}
+.page-inner {
+    background: #fff;
+    padding-top: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+}
+.page-inner h2 {
+    color: #333;
+    text-shadow: none !important;
+}
+.fourzerofour {
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 10px;
+}
+.fourzerofour h2 {
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.fourzerofour h3 {
+    font-weight: 300;
+    color: #444;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.fourzerofour ul {
+    font-size: 20px;
+    list-style: inside;
+}
+.fourzerofour ul li {
+    margin-bottom: 10px;
+}
+@media (min-width: 576px) and (max-width: 991px) { 
+	.srchbox {
+	    margin-left: 0px;
+	    margin-top: 10px;
+	}
+	.navbar-toggler {
+	    color: #000 !important;
+	    border: none !important;
+	}
+}
+@media (max-width: 575px) {
+	.jumbotron h1 {
+	    font-size: 30px;
+	    line-height: 40px;
+	}
+	.srchbox {
+	    margin-left: 0px;
+	    margin-top: 10px;
+	}
+	.navbar-toggler {
+	    color: #000 !important;
+	    border: none !important;
+	}
+	.makeitrelative h2, .title-holder h2{
+	    font-size: 30px;
+	}
+}
