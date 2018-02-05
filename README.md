@@ -29,7 +29,7 @@ I used following code libraries and packages:
 
 ### Installation
 
-Dillinger requires WordPress Rest API Enabled.
+rtPanel requires WordPress Rest API Enabled.
 
   - Download zip of this repo.
   - Now install it on WordPress like normal theme.
