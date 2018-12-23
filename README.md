@@ -2,7 +2,7 @@
 
 This is my WordPress Theme assigment for rtCamp.com 
 
-Demo URL: http://thegraphicplanet.com/aumkarsandbox/rtPanel/
+Demo URL: http://sandbox.pinakalabs.com/rtpanel/
 
 # Features
 
